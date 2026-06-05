@@ -10,10 +10,11 @@ import {
 } from "./ui/breadcrumb";
 import { Button } from "./ui/button";
 import Snapshot from "./snapshot";
+import { Avatar, AvatarImage } from "./ui/avatar";
 
 export function TopHeader() {
 	return (
-		<header className="relative z-10 flex h-10 shrink-0 items-center justify-between border-b bg-sidebar px-4">
+		<header className="relative z-10 flex h-12 shrink-0 items-center justify-between border-b bg-sidebar px-4">
 			<div className="flex items-center gap-4">
 				{/* Branding */}
 
@@ -55,6 +56,13 @@ export function TopHeader() {
 				<Button variant="default" className="rounded-md" size="sm">
 					Run
 				</Button>
+				<Avatar>
+					<AvatarImage
+						src="https://github.com/brasga-a.png"
+						alt="Avatar image"
+						className="rounded-lg"
+					/>
+				</Avatar>
 			</div>
 		</header>
 	);
