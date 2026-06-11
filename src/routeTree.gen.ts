@@ -9,115 +9,142 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as DashboardRouteImport } from './routes/_dashboard'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PProjectIdRouteImport } from './routes/p/$projectId'
-import { Route as PProjectIdSketchRouteImport } from './routes/p/$projectId/sketch'
-import { Route as PProjectIdSchemaRouteImport } from './routes/p/$projectId/schema'
-import { Route as PProjectIdProfileRouteImport } from './routes/p/$projectId/profile'
-import { Route as PProjectIdHistoryRouteImport } from './routes/p/$projectId/history'
-import { Route as PProjectIdDataRouteImport } from './routes/p/$projectId/data'
+import { Route as ProjectProjectIdRouteImport } from './routes/project/$projectId'
+import { Route as DashboardDashboardRouteImport } from './routes/_dashboard/dashboard'
+import { Route as ProjectProjectIdSketchRouteImport } from './routes/project/$projectId/sketch'
+import { Route as ProjectProjectIdSchemaRouteImport } from './routes/project/$projectId/schema'
+import { Route as ProjectProjectIdProfileRouteImport } from './routes/project/$projectId/profile'
+import { Route as ProjectProjectIdHistoryRouteImport } from './routes/project/$projectId/history'
+import { Route as ProjectProjectIdDataRouteImport } from './routes/project/$projectId/data'
 
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/_dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PProjectIdRoute = PProjectIdRouteImport.update({
-  id: '/p/$projectId',
-  path: '/p/$projectId',
+const ProjectProjectIdRoute = ProjectProjectIdRouteImport.update({
+  id: '/project/$projectId',
+  path: '/project/$projectId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PProjectIdSketchRoute = PProjectIdSketchRouteImport.update({
+const DashboardDashboardRoute = DashboardDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const ProjectProjectIdSketchRoute = ProjectProjectIdSketchRouteImport.update({
   id: '/sketch',
   path: '/sketch',
-  getParentRoute: () => PProjectIdRoute,
+  getParentRoute: () => ProjectProjectIdRoute,
 } as any)
-const PProjectIdSchemaRoute = PProjectIdSchemaRouteImport.update({
+const ProjectProjectIdSchemaRoute = ProjectProjectIdSchemaRouteImport.update({
   id: '/schema',
   path: '/schema',
-  getParentRoute: () => PProjectIdRoute,
+  getParentRoute: () => ProjectProjectIdRoute,
 } as any)
-const PProjectIdProfileRoute = PProjectIdProfileRouteImport.update({
+const ProjectProjectIdProfileRoute = ProjectProjectIdProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
-  getParentRoute: () => PProjectIdRoute,
+  getParentRoute: () => ProjectProjectIdRoute,
 } as any)
-const PProjectIdHistoryRoute = PProjectIdHistoryRouteImport.update({
+const ProjectProjectIdHistoryRoute = ProjectProjectIdHistoryRouteImport.update({
   id: '/history',
   path: '/history',
-  getParentRoute: () => PProjectIdRoute,
+  getParentRoute: () => ProjectProjectIdRoute,
 } as any)
-const PProjectIdDataRoute = PProjectIdDataRouteImport.update({
+const ProjectProjectIdDataRoute = ProjectProjectIdDataRouteImport.update({
   id: '/data',
   path: '/data',
-  getParentRoute: () => PProjectIdRoute,
+  getParentRoute: () => ProjectProjectIdRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/p/$projectId': typeof PProjectIdRouteWithChildren
-  '/p/$projectId/data': typeof PProjectIdDataRoute
-  '/p/$projectId/history': typeof PProjectIdHistoryRoute
-  '/p/$projectId/profile': typeof PProjectIdProfileRoute
-  '/p/$projectId/schema': typeof PProjectIdSchemaRoute
-  '/p/$projectId/sketch': typeof PProjectIdSketchRoute
+  '/dashboard': typeof DashboardDashboardRoute
+  '/project/$projectId': typeof ProjectProjectIdRouteWithChildren
+  '/project/$projectId/data': typeof ProjectProjectIdDataRoute
+  '/project/$projectId/history': typeof ProjectProjectIdHistoryRoute
+  '/project/$projectId/profile': typeof ProjectProjectIdProfileRoute
+  '/project/$projectId/schema': typeof ProjectProjectIdSchemaRoute
+  '/project/$projectId/sketch': typeof ProjectProjectIdSketchRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/p/$projectId': typeof PProjectIdRouteWithChildren
-  '/p/$projectId/data': typeof PProjectIdDataRoute
-  '/p/$projectId/history': typeof PProjectIdHistoryRoute
-  '/p/$projectId/profile': typeof PProjectIdProfileRoute
-  '/p/$projectId/schema': typeof PProjectIdSchemaRoute
-  '/p/$projectId/sketch': typeof PProjectIdSketchRoute
+  '/dashboard': typeof DashboardDashboardRoute
+  '/project/$projectId': typeof ProjectProjectIdRouteWithChildren
+  '/project/$projectId/data': typeof ProjectProjectIdDataRoute
+  '/project/$projectId/history': typeof ProjectProjectIdHistoryRoute
+  '/project/$projectId/profile': typeof ProjectProjectIdProfileRoute
+  '/project/$projectId/schema': typeof ProjectProjectIdSchemaRoute
+  '/project/$projectId/sketch': typeof ProjectProjectIdSketchRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/p/$projectId': typeof PProjectIdRouteWithChildren
-  '/p/$projectId/data': typeof PProjectIdDataRoute
-  '/p/$projectId/history': typeof PProjectIdHistoryRoute
-  '/p/$projectId/profile': typeof PProjectIdProfileRoute
-  '/p/$projectId/schema': typeof PProjectIdSchemaRoute
-  '/p/$projectId/sketch': typeof PProjectIdSketchRoute
+  '/_dashboard': typeof DashboardRouteWithChildren
+  '/_dashboard/dashboard': typeof DashboardDashboardRoute
+  '/project/$projectId': typeof ProjectProjectIdRouteWithChildren
+  '/project/$projectId/data': typeof ProjectProjectIdDataRoute
+  '/project/$projectId/history': typeof ProjectProjectIdHistoryRoute
+  '/project/$projectId/profile': typeof ProjectProjectIdProfileRoute
+  '/project/$projectId/schema': typeof ProjectProjectIdSchemaRoute
+  '/project/$projectId/sketch': typeof ProjectProjectIdSketchRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/p/$projectId'
-    | '/p/$projectId/data'
-    | '/p/$projectId/history'
-    | '/p/$projectId/profile'
-    | '/p/$projectId/schema'
-    | '/p/$projectId/sketch'
+    | '/dashboard'
+    | '/project/$projectId'
+    | '/project/$projectId/data'
+    | '/project/$projectId/history'
+    | '/project/$projectId/profile'
+    | '/project/$projectId/schema'
+    | '/project/$projectId/sketch'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/p/$projectId'
-    | '/p/$projectId/data'
-    | '/p/$projectId/history'
-    | '/p/$projectId/profile'
-    | '/p/$projectId/schema'
-    | '/p/$projectId/sketch'
+    | '/dashboard'
+    | '/project/$projectId'
+    | '/project/$projectId/data'
+    | '/project/$projectId/history'
+    | '/project/$projectId/profile'
+    | '/project/$projectId/schema'
+    | '/project/$projectId/sketch'
   id:
     | '__root__'
     | '/'
-    | '/p/$projectId'
-    | '/p/$projectId/data'
-    | '/p/$projectId/history'
-    | '/p/$projectId/profile'
-    | '/p/$projectId/schema'
-    | '/p/$projectId/sketch'
+    | '/_dashboard'
+    | '/_dashboard/dashboard'
+    | '/project/$projectId'
+    | '/project/$projectId/data'
+    | '/project/$projectId/history'
+    | '/project/$projectId/profile'
+    | '/project/$projectId/schema'
+    | '/project/$projectId/sketch'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PProjectIdRoute: typeof PProjectIdRouteWithChildren
+  DashboardRoute: typeof DashboardRouteWithChildren
+  ProjectProjectIdRoute: typeof ProjectProjectIdRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_dashboard': {
+      id: '/_dashboard'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -125,74 +152,93 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/p/$projectId': {
-      id: '/p/$projectId'
-      path: '/p/$projectId'
-      fullPath: '/p/$projectId'
-      preLoaderRoute: typeof PProjectIdRouteImport
+    '/project/$projectId': {
+      id: '/project/$projectId'
+      path: '/project/$projectId'
+      fullPath: '/project/$projectId'
+      preLoaderRoute: typeof ProjectProjectIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/p/$projectId/sketch': {
-      id: '/p/$projectId/sketch'
+    '/_dashboard/dashboard': {
+      id: '/_dashboard/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardDashboardRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/project/$projectId/sketch': {
+      id: '/project/$projectId/sketch'
       path: '/sketch'
-      fullPath: '/p/$projectId/sketch'
-      preLoaderRoute: typeof PProjectIdSketchRouteImport
-      parentRoute: typeof PProjectIdRoute
+      fullPath: '/project/$projectId/sketch'
+      preLoaderRoute: typeof ProjectProjectIdSketchRouteImport
+      parentRoute: typeof ProjectProjectIdRoute
     }
-    '/p/$projectId/schema': {
-      id: '/p/$projectId/schema'
+    '/project/$projectId/schema': {
+      id: '/project/$projectId/schema'
       path: '/schema'
-      fullPath: '/p/$projectId/schema'
-      preLoaderRoute: typeof PProjectIdSchemaRouteImport
-      parentRoute: typeof PProjectIdRoute
+      fullPath: '/project/$projectId/schema'
+      preLoaderRoute: typeof ProjectProjectIdSchemaRouteImport
+      parentRoute: typeof ProjectProjectIdRoute
     }
-    '/p/$projectId/profile': {
-      id: '/p/$projectId/profile'
+    '/project/$projectId/profile': {
+      id: '/project/$projectId/profile'
       path: '/profile'
-      fullPath: '/p/$projectId/profile'
-      preLoaderRoute: typeof PProjectIdProfileRouteImport
-      parentRoute: typeof PProjectIdRoute
+      fullPath: '/project/$projectId/profile'
+      preLoaderRoute: typeof ProjectProjectIdProfileRouteImport
+      parentRoute: typeof ProjectProjectIdRoute
     }
-    '/p/$projectId/history': {
-      id: '/p/$projectId/history'
+    '/project/$projectId/history': {
+      id: '/project/$projectId/history'
       path: '/history'
-      fullPath: '/p/$projectId/history'
-      preLoaderRoute: typeof PProjectIdHistoryRouteImport
-      parentRoute: typeof PProjectIdRoute
+      fullPath: '/project/$projectId/history'
+      preLoaderRoute: typeof ProjectProjectIdHistoryRouteImport
+      parentRoute: typeof ProjectProjectIdRoute
     }
-    '/p/$projectId/data': {
-      id: '/p/$projectId/data'
+    '/project/$projectId/data': {
+      id: '/project/$projectId/data'
       path: '/data'
-      fullPath: '/p/$projectId/data'
-      preLoaderRoute: typeof PProjectIdDataRouteImport
-      parentRoute: typeof PProjectIdRoute
+      fullPath: '/project/$projectId/data'
+      preLoaderRoute: typeof ProjectProjectIdDataRouteImport
+      parentRoute: typeof ProjectProjectIdRoute
     }
   }
 }
 
-interface PProjectIdRouteChildren {
-  PProjectIdDataRoute: typeof PProjectIdDataRoute
-  PProjectIdHistoryRoute: typeof PProjectIdHistoryRoute
-  PProjectIdProfileRoute: typeof PProjectIdProfileRoute
-  PProjectIdSchemaRoute: typeof PProjectIdSchemaRoute
-  PProjectIdSketchRoute: typeof PProjectIdSketchRoute
+interface DashboardRouteChildren {
+  DashboardDashboardRoute: typeof DashboardDashboardRoute
 }
 
-const PProjectIdRouteChildren: PProjectIdRouteChildren = {
-  PProjectIdDataRoute: PProjectIdDataRoute,
-  PProjectIdHistoryRoute: PProjectIdHistoryRoute,
-  PProjectIdProfileRoute: PProjectIdProfileRoute,
-  PProjectIdSchemaRoute: PProjectIdSchemaRoute,
-  PProjectIdSketchRoute: PProjectIdSketchRoute,
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardDashboardRoute: DashboardDashboardRoute,
 }
 
-const PProjectIdRouteWithChildren = PProjectIdRoute._addFileChildren(
-  PProjectIdRouteChildren,
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
 )
+
+interface ProjectProjectIdRouteChildren {
+  ProjectProjectIdDataRoute: typeof ProjectProjectIdDataRoute
+  ProjectProjectIdHistoryRoute: typeof ProjectProjectIdHistoryRoute
+  ProjectProjectIdProfileRoute: typeof ProjectProjectIdProfileRoute
+  ProjectProjectIdSchemaRoute: typeof ProjectProjectIdSchemaRoute
+  ProjectProjectIdSketchRoute: typeof ProjectProjectIdSketchRoute
+}
+
+const ProjectProjectIdRouteChildren: ProjectProjectIdRouteChildren = {
+  ProjectProjectIdDataRoute: ProjectProjectIdDataRoute,
+  ProjectProjectIdHistoryRoute: ProjectProjectIdHistoryRoute,
+  ProjectProjectIdProfileRoute: ProjectProjectIdProfileRoute,
+  ProjectProjectIdSchemaRoute: ProjectProjectIdSchemaRoute,
+  ProjectProjectIdSketchRoute: ProjectProjectIdSketchRoute,
+}
+
+const ProjectProjectIdRouteWithChildren =
+  ProjectProjectIdRoute._addFileChildren(ProjectProjectIdRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PProjectIdRoute: PProjectIdRouteWithChildren,
+  DashboardRoute: DashboardRouteWithChildren,
+  ProjectProjectIdRoute: ProjectProjectIdRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

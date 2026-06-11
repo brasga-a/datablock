@@ -9,7 +9,7 @@ export default function Sidebar() {
         <aside className="relative z-0 h-full w-12 flex flex-col items-center justify-start gap-2 not-first:shrink-0 border-r bg-sidebar py-2">
             <TooltipProvider delay={0}>
                 <Tooltip>
-                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md"/>}>
+                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md text-muted-foreground"/>}>
                         <Box className="size-5" />
                     </TooltipTrigger>
                     <TooltipContent side="right" align="center" className="rounded-sm bg-foreground text-background text-xs" sideOffset={10}>
@@ -25,7 +25,7 @@ export default function Sidebar() {
                 <Separator className="w-auto! px-3 bg-border-3"/>
 
                 <Tooltip>
-                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md"/>}>
+                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md text-muted-foreground"/>}>
                         <SquareMousePointer className="size-5" />
                     </TooltipTrigger>
                     <TooltipContent side="right" align="center" className="rounded-sm bg-foreground text-background text-xs" sideOffset={10}>
@@ -38,7 +38,7 @@ export default function Sidebar() {
                     </TooltipContent>
                 </Tooltip>
                 <Tooltip>
-                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md"/>}>
+                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md text-muted-foreground"/>}>
                         <SquareDashedMousePointer className="size-5" />
                     </TooltipTrigger>
                     <TooltipContent side="right" align="center" className="rounded-sm bg-foreground text-background text-xs" sideOffset={10}>
@@ -54,7 +54,7 @@ export default function Sidebar() {
                 <Separator className="w-auto! px-3 bg-border-3"/>
 
                 <Tooltip>
-                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md"/>}>
+                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md text-muted-foreground"/>}>
                         <Table className="size-5" />
                     </TooltipTrigger>
                     <TooltipContent side="right" align="center" className="rounded-sm bg-foreground text-background text-xs" sideOffset={10}>
@@ -67,7 +67,7 @@ export default function Sidebar() {
                     </TooltipContent>
                 </Tooltip>
                 <Tooltip>
-                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md"/>}>
+                    <TooltipTrigger render={<Button variant="ghost" size="icon-lg" className="rounded-md text-muted-foreground"/>}>
                         <GitBranch className="size-5" />
                     </TooltipTrigger>
                     <TooltipContent side="right" align="center" className="rounded-sm bg-foreground text-background text-xs" sideOffset={10}>

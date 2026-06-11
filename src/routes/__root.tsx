@@ -5,6 +5,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 import { ThemeProvider } from '@/components/theme-provider'
 
 import appCss from '../styles.css?url'
+import { Header } from '#/components/menu/header'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -51,7 +52,7 @@ function NotFound() {
       <h1 className="text-2xl font-semibold tracking-tight">Page not found</h1>
       <p className="text-sm text-muted-foreground">The page you're looking for doesn't exist.</p>
       <Link
-        to="/p/$projectId/sketch"
+        to="/project/$projectId/sketch"
         params={{ projectId: 'agile-nebula-8291' }}
         className="mt-2 text-sm text-primary underline underline-offset-4"
       >
@@ -69,6 +70,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <ThemeProvider defaultTheme="system" storageKey="theme">
+          <Header/>
           {children}
         </ThemeProvider>
         <TanStackDevtools

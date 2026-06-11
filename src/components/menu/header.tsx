@@ -14,6 +14,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 
 import UserDropdown from "../user-dropdown";
+import Logo from "../logo";
 
 export function Header() {
 	return (
@@ -23,8 +24,8 @@ export function Header() {
 
 				<div className="flex items-center justify-center gap-2 text-[13px] font-semibold tracking-[-0.01em] antialiased [font-feature-settings:'ss01','cv11']">
 					{/* <span className="size-4 bg-radial-[at_50%_75%] from-blue-300 via-blue-500 to-blue-700 to-90% rounded-[3px]"></span> */}
-					<Database className="size-4 text-blue-500" />
-					DBgraph
+					<Logo/>
+					GraphoDB
 				</div>
 
 				<Breadcrumb>
